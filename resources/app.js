@@ -6,6 +6,8 @@
   const tweetButton = document.querySelector("#tweet");
   const downloadButton = document.querySelector("#download");
   const footer = document.querySelector("#footer");
+  const contentElement = document.querySelector("#content");
+  const containerElement = document.querySelector("#container");
 
   copyButton.addEventListener("click", () => copyImage(false));
   downloadButton.addEventListener("click", downloadImage);
@@ -91,7 +93,7 @@
     const linesNode = document.getElementById("lines");
     const titleNode = document.getElementById("title");
 
-    const { start, end, fileName, enableLogo, autoCopy } = window.__data__;
+    const { start, end, fileName, enableLogo, autoCopy, webMode } = window.__data__;
 
     titleNode.innerHTML = fileName;
 
@@ -106,6 +108,14 @@
 
     if (enableLogo) {
       footer.style.display = "flex";
+    }
+
+    if (webMode) {
+      containerElement.classList.add("web");
+      contentElement.classList.add("web");
+    } else {
+      containerElement.classList.add("classic");
+      contentElement.classList.add("classic");
     }
 
     if (autoCopy) {
