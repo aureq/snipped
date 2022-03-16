@@ -48,7 +48,7 @@ export function activate(context: vscode.ExtensionContext) {
           }
         );
 
-        const { enableLogo, enablePng, autoCopy } =
+        const { enableLogo, enablePng, autoCopy, webMode } =
           vscode.workspace.getConfiguration("snipped", null);
 
         panel.webview.onDidReceiveMessage(async ({ type, data, message }) => {
@@ -117,6 +117,7 @@ export function activate(context: vscode.ExtensionContext) {
           enableLogo,
           enablePng,
           autoCopy,
+          webMode
         };
 
         // I know
